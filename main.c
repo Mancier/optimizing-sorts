@@ -3,6 +3,7 @@
 //
 #include <stdio.h>
 #include "BubbleSort/bubbleSort.h"
+#include "InsertSort/insertSort.h"
 #include "Utils/utils.h"
 
 int main () {
@@ -36,7 +37,11 @@ int main () {
                 results("Bubble Sort", time_consumed);
                 break;
             case 2:
-                //run insertionSort
+                time_consumed[0] = time_consuming(insert_sort, vector);
+                recover_array(original_array, vector);
+                time_consumed[1] = time_consuming(insert_sort_optimized, vector);
+                recover_array(original_array, vector);
+                results("Insert Sort", time_consumed);
                 break;
             case 3:
                 //run selectionSort
