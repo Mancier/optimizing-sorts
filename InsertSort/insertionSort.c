@@ -1,6 +1,6 @@
 #include "insertSort.h"
 
-void insertion_sort_optimized(int *arr ){
+void insertion_sort_optimized(int *arr){
 	int n = sizeof(arr)/sizeof(arr[0]);
 	int i, key, j, meio, res;
 
