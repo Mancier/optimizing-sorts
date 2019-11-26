@@ -20,4 +20,6 @@ double time_consuming(int (*function)(int*), int *arr);
 
 void results(char *algorithm_name, double *time);
 
+int size_of_array(int *arr);
+
 #endif //UPDATINGALGORITHM_UTILS_H
