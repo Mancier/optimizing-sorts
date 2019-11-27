@@ -11,11 +11,11 @@ void selection_sort_optimized(int *arr)
 			}
         	
 			int key = arr[min]; 
-			while (min > i)  
-			{ 
+			while (min > i){ 
 				arr[min] = arr[min - 1];
 				min--; 
 			} 
+		
         	arr[i] = key; 
     } 
 } 
@@ -27,9 +27,7 @@ void selection_sort(int *arr){
 		aux = i;
 		for (int j = i+1; j < ARRAY_LENGTH ; j++){
 			if (arr[j] < arr[aux]) {
-				arr[aux] = arr[i];
-				arr[i] = arr[j];
-				arr[j] = arr[aux];
+				swap(&arr[i], &arr[j])
 			}
 		}
 	}
