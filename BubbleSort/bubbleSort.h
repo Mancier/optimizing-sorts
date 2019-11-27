@@ -5,8 +5,8 @@
 #ifndef UPDATINGALGORITHM_BUBBLESORT_H
 #define UPDATINGALGORITHM_BUBBLESORT_H
 
-int bubble_sort_optimized(int *arr);
+void bubble_sort_optimized(int *arr);
 
-int bubble_sort(int *arr);
+void bubble_sort(int *arr);
 
 #endif //UPDATINGALGORITHM_BUBBLESORT_H

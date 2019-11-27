@@ -1,7 +1,7 @@
 #include <stdbool.h>
 #include "../Utils/utils.h"
 
-int bubble_sort_optimized(int *arr)
+void bubble_sort_optimized(int *arr)
 {
 	int i, pivo, j;
 	bool swap = false;
@@ -21,7 +21,7 @@ int bubble_sort_optimized(int *arr)
 }
 
 
-int bubble_sort(int *arr)
+void bubble_sort(int *arr)
 {
 	int i, aux, j;
 	
