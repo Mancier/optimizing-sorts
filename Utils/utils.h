@@ -22,4 +22,6 @@ double time_consuming_with_three_params(void (*function)(int*, int, int), int *a
 
 void results(char *algorithm_name, double *time);
 
+int size_of_array(int *arr);
+
 #endif //UPDATINGALGORITHM_UTILS_H
