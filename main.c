@@ -2,14 +2,17 @@
 // Created by victor on 19/10/2019.
 //
 #include <stdio.h>
+#include <stdbool.h>
 #include "BubbleSort/bubbleSort.h"
 #include "QuickSort/quickSort.h"
-#include "InsertSort/insertSort.h"
+#include "InsertionSort/insertionSort.h"
+#include "SelectionSort/selectionSort.h"
 #include "Utils/utils.h"
 
 int main () {
     int option = 0;
     double time_consumed[2] = {0,0}; //[0] - Normal Algorithm; [1] - Optimized Algorithm
+    bool suicide = false;
     int original_array[ARRAY_LENGTH];
     int vector[ARRAY_LENGTH];
 
@@ -19,6 +22,7 @@ int main () {
     printf("\t3 - Selection Sort\n");
     printf("\t4 - Merge Sort\n");
     printf("\t5 - Quick Sort\n");
+    printf("\t6 - Run all (Suicide Mode)\n");
 
     //Creating the array and calculating his length
     creating_random_number_vector(original_array);
@@ -38,14 +42,20 @@ int main () {
                 results("Bubble Sort", time_consumed);
                 break;
             case 2:
-                time_consumed[0] = time_consuming(insert_sort, vector);
-                recover_array(original_array, vector);
-                time_consumed[1] = time_consuming(insert_sort_optimized, vector);
-                recover_array(original_array, vector);
-                results("Insert Sort", time_consumed);
+                print_array(vector);
+                time_consumed[0] = time_consuming(insertion_sort, vector);
+                print_array(vector);
+                //recover_array(original_array, vector);
+                //time_consumed[1] = time_consuming(insertion_sort_optimized, vector);
+                //recover_array(original_array, vector);
+                results("Insertion Sort", time_consumed);
                 break;
             case 3:
-                //run selectionSort
+                time_consumed[0] = time_consuming(selection_sort, vector);
+                recover_array(original_array, vector);
+                time_consumed[1] = time_consuming(selection_sort_optimized, vector);
+                recover_array(original_array, vector);
+                results("Selection Sort", time_consumed);
                 break;
             case 4:
                 //run mergeSort
@@ -54,9 +64,39 @@ int main () {
                 time_consumed[0] = time_consuming_with_three_params(quick_sort, vector, 0, ARRAY_LENGTH - 1);
                 recover_array(original_array, vector);
                 time_consumed[1] = time_consuming_with_three_params(quick_sort_optimized, vector, 0, ARRAY_LENGTH - 1);
+                recover_array(original_array, vector);
                 results("Quick Sort", time_consumed);
+                break;
+            case 6:
+                //run bubbleSort
+                time_consumed[0] = time_consuming(bubble_sort, vector);
+                recover_array(original_array, vector);
+                time_consumed[1] = time_consuming(bubble_sort_optimized, vector);
+                recover_array(original_array, vector);
+                results("Bubble Sort", time_consumed);
 
+                //run insertSort
+                time_consumed[0] = time_consuming(insertion_sort, vector);
+                recover_array(original_array, vector);
+                time_consumed[1] = time_consuming(insertion_sort_optimized, vector);
+                recover_array(original_array, vector);
+                results("Insertion Sort", time_consumed);
 
+                //run selectionSort
+                time_consumed[0] = time_consuming(selection_sort, vector);
+                recover_array(original_array, vector);
+                time_consumed[1] = time_consuming(selection_sort_optimized, vector);
+                recover_array(original_array, vector);
+                results("Selection Sort", time_consumed);
+
+                //run mergeSort
+
+                //run quickSort
+                time_consumed[0] = time_consuming_with_three_params(quick_sort, vector, 0, ARRAY_LENGTH - 1);
+                recover_array(original_array, vector);
+                time_consumed[1] = time_consuming_with_three_params(quick_sort_optimized, vector, 0, ARRAY_LENGTH - 1);
+                recover_array(original_array, vector);
+                results("Quick Sort", time_consumed);
                 break;
             default:
                 printf("Opcao invalida, tente novamente");

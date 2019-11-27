@@ -59,9 +59,5 @@ void results(char *algorithm_name, double *time)
 {
     printf("%s: %f\n", algorithm_name, time[0]);
     printf("%s optimized: %f\n", algorithm_name, time[1]);
-}
-
-int size_of_array(int *arr)
-{
-	return sizeof(arr)/sizeof(arr[0]);
+    printf("\n");
 }

@@ -1,4 +1,4 @@
-#include "insertSort.h"
+#include "../Utils/utils.h"
 
 void insertion_sort_optimized(int *arr){
 	int n = sizeof(arr)/sizeof(arr[0]);
@@ -34,10 +34,10 @@ void insertion_sort_optimized(int *arr){
 }
 
 void insertion_sort(int *arr){
-	int n = sizeof(arr)/sizeof(arr[0]);
+	int size = ARRAY_LENGTH - 1;
 	int i, key, j;
 
-	for (i = 0; i < n; i++){
+	for (i = 0; i < size; i++){
 		key = arr[i];
 		j = i - 1;
 
