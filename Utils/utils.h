@@ -5,8 +5,8 @@
 #ifndef UPDATINGALGORITHM_UTILS_H
 #define UPDATINGALGORITHM_UTILS_H
 
-#define ARRAY_LENGTH 15
-#define MAX_NUMBER 20
+#define ARRAY_LENGTH 5
+#define MAX_NUMBER 9
 
 void print_array(int *arr);
 
