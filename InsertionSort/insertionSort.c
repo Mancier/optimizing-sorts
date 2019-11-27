@@ -1,7 +1,7 @@
 #include "../Utils/utils.h"
 
 void insertion_sort_optimized(int *arr){
-	int n = sizeof(arr)/sizeof(arr[0]);
+	int n = ARRAY_LENGTH - 1;
 	int i, key, j, meio, res;
 
 	for (i = 1; i < n; i++){

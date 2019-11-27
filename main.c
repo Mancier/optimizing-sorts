@@ -7,6 +7,7 @@
 #include "QuickSort/quickSort.h"
 #include "InsertionSort/insertionSort.h"
 #include "SelectionSort/selectionSort.h"
+#include "MergeSort/mergeSort.h"
 #include "Utils/utils.h"
 
 int main () {
@@ -45,9 +46,9 @@ int main () {
                 print_array(vector);
                 time_consumed[0] = time_consuming(insertion_sort, vector);
                 print_array(vector);
-                //recover_array(original_array, vector);
-                //time_consumed[1] = time_consuming(insertion_sort_optimized, vector);
-                //recover_array(original_array, vector);
+                recover_array(original_array, vector);
+                time_consumed[1] = time_consuming(insertion_sort_optimized, vector);
+                recover_array(original_array, vector);
                 results("Insertion Sort", time_consumed);
                 break;
             case 3:
@@ -58,6 +59,11 @@ int main () {
                 results("Selection Sort", time_consumed);
                 break;
             case 4:
+                time_consumed[0] = time_consuming_with_three_params(merge_sort, vector, 0, ARRAY_LENGTH - 1);
+                recover_array(original_array, vector);
+                time_consumed[1] = time_consuming_with_three_params(merge_sort_optimized, vector, 0, ARRAY_LENGTH - 1);
+                recover_array(original_array, vector);
+                results("Merge Sort", time_consumed);
                 //run mergeSort
                 break;
             case 5:
@@ -90,6 +96,11 @@ int main () {
                 results("Selection Sort", time_consumed);
 
                 //run mergeSort
+                time_consumed[0] = time_consuming_with_three_params(merge_sort, vector, 0, ARRAY_LENGTH - 1);
+                recover_array(original_array, vector);
+                time_consumed[1] = time_consuming_with_three_params(merge_sort_optimized, vector, 0, ARRAY_LENGTH - 1);
+                recover_array(original_array, vector);
+                results("Merge Sort", time_consumed);
 
                 //run quickSort
                 time_consumed[0] = time_consuming_with_three_params(quick_sort, vector, 0, ARRAY_LENGTH - 1);
@@ -103,32 +114,11 @@ int main () {
                 option = 0;
                 break;
         }
+
+        do{
+            printf("\nDeseja repetir a ação? (1/0): ");
+            scanf("%d", &option);
+        } while(option == 0 || option == 1)
     } while (!option);
     return 0;
 }
-
-/*
-    int main(int argc, char const *argv[]){
-    int arr[100000];
-	int ARRAY_LENGTH = sizeof(arr)/sizeof(int);
-	double timeOfExecution = 0;
-	clock_t time;
-
-	creatingRandomNumberVector(arr, ARRAY_LENGTH);
-
-	printf("==> Tempos de Execução <==\n");
-
-    time = clock();
-    bubbleSort(arr, ARRAY_LENGTH);
-    time = clock() - time;
-    timeOfExecution = ((double)time)/CLOCKS_PER_SEC;
-    printf("\tBubble Sort: %fs\n", timeOfExecution);
-
-    time = clock();
-    bubbleSort(arr, ARRAY_LENGTH);
-    time = clock() - time;
-    timeOfExecution = ((double)time)/CLOCKS_PER_SEC;
-    printf("\tBubble Sort Melhorado: %fs\n", timeOfExecution);
-    return 0;
-    }
- */
