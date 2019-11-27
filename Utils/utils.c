@@ -28,11 +28,20 @@ void swap(int* a, int* b)
     *b = t;
 }
 
-double time_consuming(int (*function)(int*), int *arr)
+double time_consuming(void (*function)(int*), int *arr)
 {
     clock_t time;
     time = clock();
     function(arr);
+    time = clock() - time;
+    return ((double)time)/CLOCKS_PER_SEC;
+}
+
+double time_consuming_with_three_params(void (*function)(int*, int, int), int *arr, int low, int high)
+{
+    clock_t time;
+    time = clock();
+    function(arr, low, high);
     time = clock() - time;
     return ((double)time)/CLOCKS_PER_SEC;
 }

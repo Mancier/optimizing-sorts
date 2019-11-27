@@ -3,6 +3,7 @@
 //
 #include <stdio.h>
 #include "BubbleSort/bubbleSort.h"
+#include "QuickSort/quickSort.h"
 #include "InsertSort/insertSort.h"
 #include "Utils/utils.h"
 
@@ -50,7 +51,12 @@ int main () {
                 //run mergeSort
                 break;
             case 5:
-                //run quickSort
+                time_consumed[0] = time_consuming_with_three_params(quick_sort, vector, 0, ARRAY_LENGTH - 1);
+                recover_array(original_array, vector);
+                time_consumed[1] = time_consuming_with_three_params(quick_sort_optimized, vector, 0, ARRAY_LENGTH - 1);
+                results("Quick Sort", time_consumed);
+
+
                 break;
             default:
                 printf("Opcao invalida, tente novamente");
