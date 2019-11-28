@@ -10,3 +10,11 @@
         <li>Quick Sort</li>
      </ul>
 </p>
+
+## Desenvolvedores
+<ul>
+    <li> Ana Laura Mariano </li>
+    <li> Nathan Vitiver [GitHub](https://github.com/nvitiver)</li>
+    <li> Shizuka Rogrigues [GitHub](https://github.com/Shizuzu)</li>
+    <li> Victor Augusto [GitHub](https://github.com/Mancier)</li>
+</ul>
